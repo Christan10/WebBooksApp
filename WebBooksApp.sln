@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2006
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebBooksApp", "WebBooksApp\WebBooksApp.csproj", "{1DD7086E-BE40-4FDD-9CCC-4778EC7BD4A3}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "web", "..\..\Users\ch.skordas\Documents\Visual Studio 2017\Projects\web\web.sqlproj", "{538B3D81-D8EA-45D6-8D52-25930C7AEA01}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DD7086E-BE40-4FDD-9CCC-4778EC7BD4A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DD7086E-BE40-4FDD-9CCC-4778EC7BD4A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DD7086E-BE40-4FDD-9CCC-4778EC7BD4A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DD7086E-BE40-4FDD-9CCC-4778EC7BD4A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{538B3D81-D8EA-45D6-8D52-25930C7AEA01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{538B3D81-D8EA-45D6-8D52-25930C7AEA01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{538B3D81-D8EA-45D6-8D52-25930C7AEA01}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{538B3D81-D8EA-45D6-8D52-25930C7AEA01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{538B3D81-D8EA-45D6-8D52-25930C7AEA01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{538B3D81-D8EA-45D6-8D52-25930C7AEA01}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B5574360-AEA6-426A-B0EB-46457BCB1F24}
+	EndGlobalSection
+EndGlobal
