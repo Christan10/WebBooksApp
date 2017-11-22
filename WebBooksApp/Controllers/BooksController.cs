@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -41,13 +38,12 @@ namespace WebBooksApp.Controllers
             return Ok(Mapper.Map<BookViewModel>(book));
         }
 
-        [HttpGet("{name:length(1, 50)}")]
-        public async Task<IActionResult> GetByName(string name)
+        [HttpGet("search")]
+        public async Task<IActionResult> Search([FromQuery]string title)
         {
-            var book = await _booksRepository.FindByNameAsync(name);
-            if (book == null) return NotFound();
+            var results = await _booksRepository.Search(title);
 
-            return Ok(Mapper.Map<BookViewModel>(book));
+            return Ok(Mapper.Map<BookViewModel[]>(results));
         }
 
         [HttpPost]
@@ -69,7 +65,7 @@ namespace WebBooksApp.Controllers
             return Ok(book);
         }
 
-        [HttpPut("{id:int}")]
+        [HttpPut("{id:min(1)}")]
         public async Task<IActionResult> Update(int id, [FromBody] BookEditViewModel model)
         {
             var book = await _booksRepository.FindAsync(id);
@@ -80,6 +76,17 @@ namespace WebBooksApp.Controllers
             await _booksRepository.SaveAsync(bookToUpdate);
 
             return Ok(Mapper.Map<BookViewModel>(bookToUpdate));
+        }
+
+        [HttpDelete("{id:min(1)}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var book = await _booksRepository.FindAsync(id);
+            if (book == null) return NotFound();
+
+            await _booksRepository.DeleteAsync(book);
+
+            return Ok(Mapper.Map<BookViewModel>(book));
         }
     }
 }

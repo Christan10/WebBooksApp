@@ -44,6 +44,15 @@ namespace WebBooksApp.Data.Repositories
             return book;
         }
 
+        public async Task<IEnumerable<Book>> Search(string title)
+        {
+            return await _dbContext.Books
+                .Include(b => b.Author)
+                .Where(b => b.Title.ToLowerInvariant().StartsWith(title.ToLowerInvariant()))
+                .ToListAsync();
+        }
+
+
         public async Task<Book> SaveAsync(Book book)
         {
             if (book.Id <= 0)
@@ -60,6 +69,14 @@ namespace WebBooksApp.Data.Repositories
         public async Task<IEnumerable<Book>> GetBooks()
         {
             return await _dbContext.Books.OrderBy(c => c.Title).ToListAsync();
+        }
+
+        public async Task<bool> DeleteAsync(Book book)
+        {
+            if (book == null) throw new ArgumentNullException($"{nameof(book)} can not be null");
+
+            _dbContext.Entry(book).State = EntityState.Deleted;
+            return await _dbContext.SaveChangesAsync() > 0;
         }
     }
 }

@@ -15,4 +15,5 @@ namespace WebBooksApp.ViewModels.Books
         [MinLength(2)]
         public string AuthorName { get; set; }
     }
+
 }
