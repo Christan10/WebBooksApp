@@ -24,4 +24,9 @@ namespace WebBooksApp.Data.Repositories
         Task<IEnumerable<Book>> GetBooks();
         Task<bool> DeleteAsync(Book book);
     }
+
+    public interface ICartRepository
+    {
+        Task<Cart> SaveAsync(Cart cart);
+    }
 }
